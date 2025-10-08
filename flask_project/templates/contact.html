@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      position: relative;
+    }
+
+    img.bg {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 1;
+    }
+
+    .contact-container {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 40px 60px;
+      border-radius: 15px;
+      color: black;
+      font-weight: bold;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      max-width: 600px;
+    }
+
+    h2 {
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    a {
+      color: blue;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 25px;
+      background-color: lightblue;
+      color: black;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    a.back-link:hover {
+      background-color: deepskyblue;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="{{ url_for('static', filename='images/Main.jpg') }}" alt="Background" class="bg">
+
+  <div class="contact-container">
+    <h2>Contact Me:</h2>
+    <p>Email: <a href="mailto:angelobiticon@gmail.com">angelobiticon@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/BiticonBSCPE" target="_blank">https://github.com/BiticonBSCPE</a></p>
+  </div>
+
+  <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
+
+</body>
+</html>

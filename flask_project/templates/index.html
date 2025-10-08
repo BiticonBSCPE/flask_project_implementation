@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    img.bg {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 64px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 60px;
+      margin-bottom: 100px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      text-decoration: none;
+      background-color: lightblue;
+      color: black;
+      padding: 25px 50px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 22px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: deepskyblue;
+      color: white;
+    }
+
+    .gif-top-left {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 300px;
+    }
+
+    .gif-top-center {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 250px;
+    }
+
+    .gif-top-right {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="{{ url_for('static', filename='images/Main.jpg') }}" alt="Background" class="bg">
+
+  <img src="https://tenor.com/view/cat-meme-meme-gif-6022291883376712130.gif" alt="Cat Left" class="gif-top-left">
+  <img src="https://tenor.com/view/wawa-cat-gif-25937424.gif" alt="Cat Center" class="gif-top-center">
+  <img src="https://tenor.com/view/bpk-suspicious-cat-gif-14947737974374967817.gif" alt="Cat Right" class="gif-top-right">
+
+  <h1>Welcome to Angelo's Portfolio</h1>
+
+  <nav>
+    <a href="{{ url_for('works') }}">My Works</a>
+    <a href="{{ url_for('profile') }}">Profile</a>
+    <a href="{{ url_for('contact') }}">Contact</a>
+  </nav>
+
+</body>
+</html>

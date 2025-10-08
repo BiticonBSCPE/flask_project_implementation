@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Works</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 40px;
+      color: white;
+    }
+
+    img.bg {
+      width: 100%;
+      height: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      opacity: 1;
+    }
+
+    h1 {
+      font-size: 36px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+    }
+
+    .work-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+    }
+
+    .work-list li {
+      display: inline-block;
+      margin: 15px;
+    }
+
+    .work-list a {
+      text-decoration: none;
+      color: black;
+      background-color: lightblue;
+      padding: 15px 30px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 18px;
+      display: inline-block;
+    }
+
+    .work-list a:hover {
+      background-color: deepskyblue;
+      color: white;
+      transition: 0.3s;
+    }
+
+    a.back-link {
+      display: inline-block;
+      margin-top: 40px;
+      background-color: lightblue;
+      color: black;
+      padding: 10px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a.back-link:hover {
+      background-color: deepskyblue;
+      color: white;
+      transition: 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="{{ url_for('static', filename='images/Main.jpg') }}" alt="Background" class="bg">
+
+  <h1>My Programming Works</h1>
+  <p>Select a project below to view or test it:</p>
+
+  <ul class="work-list">
+    <li><a href="{{ url_for('touppercase') }}">toUpperCase</a></li>
+    <li><a href="{{ url_for('areaofcircle') }}">Area of a Circle</a></li>
+    <li><a href="{{ url_for('areaoftriangle') }}">Area of a Triangle</a></li>
+  </ul>
+
+  <a href="{{ url_for('index') }}" class="back-link">Back to Home</a>
+
+</body>
+</html>

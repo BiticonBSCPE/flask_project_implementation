@@ -45,6 +45,37 @@ def areaoftriangle():
             result = "Invalid input"
     return render_template('areaoftriangle.html', result=result)
 
+@app.route('/infix_to_postfix', methods=['GET', 'POST'])
+def infix_to_postfix():
+    result = None
+    if request.method == 'POST':
+        expression = request.form['expression']
+
+        precedence = {'+': 1, '-': 1, '*': 2, '/': 2, '^': 3}
+        stack = []
+        postfix = []
+
+        for ch in expression.replace(" ", ""):
+            if ch.isalnum():
+                postfix.append(ch)
+            elif ch == '(':
+                stack.append(ch)
+            elif ch == ')':
+                while stack and stack[-1] != '(':
+                    postfix.append(stack.pop())
+                stack.pop()
+            else:
+                while stack and stack[-1] != '(' and precedence.get(ch, 0) <= precedence.get(stack[-1], 0):
+                    postfix.append(stack.pop())
+                stack.append(ch)
+
+        while stack:
+            postfix.append(stack.pop())
+
+        result = ''.join(postfix)
+
+    return render_template('infixtopostfix.html', result=result)
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
